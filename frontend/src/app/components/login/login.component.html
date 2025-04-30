@@ -1,0 +1,78 @@
+<mat-card class="auth-card">
+    <mat-card-header>
+      <mat-card-title>Welcome</mat-card-title>
+    </mat-card-header>
+  
+    <mat-card-content>
+      <mat-tab-group [(selectedIndex)]="selectedTab">
+        <mat-tab label="Login">
+          <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Email</mat-label>
+              <input matInput formControlName="email" type="email">
+              <mat-error *ngIf="loginForm.get('email')?.hasError('required')">
+                Email is required
+              </mat-error>
+              <mat-error *ngIf="loginForm.get('email')?.hasError('email')">
+                Please enter a valid email
+              </mat-error>
+            </mat-form-field>
+  
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Password</mat-label>
+              <input matInput formControlName="password" type="password">
+              <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
+                Password is required
+              </mat-error>
+            </mat-form-field>
+  
+            <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid">
+              Login
+            </button>
+          </form>
+        </mat-tab>
+  
+        <mat-tab label="Sign Up">
+          <form [formGroup]="signupForm" (ngSubmit)="onSignup()">
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Full Name</mat-label>
+              <input matInput formControlName="name">
+              <mat-error *ngIf="signupForm.get('name')?.hasError('required')">
+                Name is required
+              </mat-error>
+            </mat-form-field>
+  
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Email</mat-label>
+              <input matInput formControlName="email" type="email">
+              <mat-error *ngIf="signupForm.get('email')?.hasError('required')">
+                Email is required
+              </mat-error>
+              <mat-error *ngIf="signupForm.get('email')?.hasError('email')">
+                Please enter a valid email
+              </mat-error>
+            </mat-form-field>
+  
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Password</mat-label>
+              <input matInput formControlName="password" type="password">
+              <mat-error *ngIf="signupForm.get('password')?.hasError('required')">
+                Password is required
+              </mat-error>
+              <mat-error *ngIf="signupForm.get('password')?.hasError('minLength')">
+                Password must be at least 6 characters
+              </mat-error>
+            </mat-form-field>
+  
+            <mat-checkbox formControlName="isTherapist">
+              Are you registering as a therapist?
+            </mat-checkbox>
+  
+            <button mat-raised-button color="primary" type="submit" [disabled]="signupForm.invalid">
+              Sign Up
+            </button>
+          </form>
+        </mat-tab>
+      </mat-tab-group>
+    </mat-card-content>
+  </mat-card>

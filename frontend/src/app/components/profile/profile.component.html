@@ -1,0 +1,98 @@
+
+<div class="profile-container">
+    <!-- <h1>User Profile</h1> -->
+    <button mat-raised-button color="primary" (click)="returnToMain()">Back to Main</button>
+    <br>
+    <div class="profile-grid">
+      <!-- First Column -->
+      <div class="column">
+        <!-- First Card (30% height) -->
+        <mat-card class="profile-card short-card">
+          <mat-card-header>
+            <mat-card-title>Basic Information</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <p><strong>Name:</strong>{{user.name}}</p>
+            <p><strong>Email:</strong>{{user.email}}</p>
+            <!-- <p><strong>Member Since:</strong> January 2023</p> -->
+            <!-- <p><strong>Total Entries:</strong> 42</p>
+            <p><strong>Last Active:</strong> 2 days ago</p> -->
+            <p><strong>Streak:</strong> 5 days</p>
+            <mat-progress-bar mode="determinate" value="75"></mat-progress-bar>
+          </mat-card-content>
+        </mat-card>
+  
+        <!-- Second Card (60% height) -->
+        <mat-card class="profile-card tall-card">
+          <mat-card-header>
+            <mat-card-title>Settings</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <div class="section">
+                <h3>Therapist Information</h3>
+                <mat-form-field appearance="outline">
+                  <mat-label>Name</mat-label>
+                  <input matInput [value]="settings.therapist.name" disabled>
+                  <!-- Display actual value -->
+                  <span *ngIf="!settings.therapist.name" class="hint">No therapist assigned</span>
+                </mat-form-field>
+                
+                <mat-form-field appearance="outline">
+                  <mat-label>Email</mat-label>
+                  <input matInput [value]="settings.therapist.email" disabled>
+                  <span *ngIf="!settings.therapist.email" class="hint">No email provided</span>
+                </mat-form-field>
+            </div>
+            <div class="section">
+                <h3>Privacy Settings</h3>
+                
+                <mat-slide-toggle [(ngModel)]="settings.sentimentShare" 
+                                 (change)="onToggleChange('sentimentShare')">
+                  Share Sentiment Analysis
+                </mat-slide-toggle>
+                
+                <mat-slide-toggle [(ngModel)]="settings.emotionShare" 
+                                 (change)="onToggleChange('emotionShare')">
+                  Share Emotion Tracking
+                </mat-slide-toggle>
+                
+                <mat-slide-toggle [(ngModel)]="settings.topicShare" 
+                                 (change)="onToggleChange('topicShare')">
+                  Share Topic Analysis
+                </mat-slide-toggle>
+                
+                <mat-slide-toggle [(ngModel)]="settings.summaryShare" 
+                                 (change)="onToggleChange('summaryShare')">
+                  Share Journal Summaries
+                </mat-slide-toggle>
+                
+                <mat-slide-toggle [(ngModel)]="settings.extremeEmotions" 
+                                 (change)="onToggleChange('extremeEmotions')">
+                  Alert for Extreme Emotions
+                </mat-slide-toggle>
+              </div>
+            </mat-card-content>
+        </mat-card>
+      </div>
+  
+      <!-- Second Column -->
+      <div class="column">
+        <!-- Single Card (90% height) -->
+        <mat-card class="profile-card x-tall-card">
+          <mat-card-header>
+            <mat-card-title>Recent Activity</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <mat-list>
+              <mat-list-item>Journal entry - Today</mat-list-item>
+              <mat-list-item>Completed goal - Yesterday</mat-list-item>
+              <mat-list-item>Mood recorded - 2 days ago</mat-list-item>
+              <mat-list-item>New streak started - 5 days ago</mat-list-item>
+            </mat-list>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+  
+ 

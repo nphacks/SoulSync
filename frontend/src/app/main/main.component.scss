@@ -1,0 +1,54 @@
+.carousel-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    position: relative;
+}
+  
+.carousel {
+    width: 80vw;
+    overflow: hidden;
+    position: relative;
+    cursor: grab;
+}
+  
+.slides {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+  
+.carousel-card {
+    min-width: 80vw;
+    min-height: 75vh;
+    margin: 0 10px;
+    padding: 20px;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    opacity: 0.5;
+    transform: scale(0.9);
+}
+  
+.carousel-card.active {
+    opacity: 1;
+    transform: scale(1);
+}
+  
+.carousel-card.prev,
+.carousel-card.next {
+    opacity: 0.7;
+    transform: scale(0.95);
+}
+  
+.nav-button {
+    position: absolute;
+    z-index: 1;
+    background: rgba(255,255,255,0.7);
+}
+  
+.prev {
+    left: 10px;
+}
+  
+.next {
+    right: 10px;
+}

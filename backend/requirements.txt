@@ -1,0 +1,5 @@
+pydub
+ffmpeg
+transformers
+torch
+pydantic[email]>=2.0

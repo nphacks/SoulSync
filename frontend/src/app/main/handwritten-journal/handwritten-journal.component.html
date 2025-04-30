@@ -1,0 +1,25 @@
+<div class="upload-container">
+    <div>You can upload a handwritten journal entry here</div>
+    <!-- <div class="upload-file-input-container"> -->
+        <input type="file" id="fileInput" (change)="handleFileInput($event)" accept=".jpg,.jpeg,.png,.pdf,.doc,.docx" multiple>
+        <label for="fileInput" class="file-upload-label">
+            <mat-icon>cloud_upload</mat-icon>
+            <span>Upload Files (JPG, PNG, PDF, DOC)</span>
+        </label>
+        
+    <!-- </div> -->
+    <div class="preview-container" *ngIf="previewFiles.length > 0">
+        <div class="preview-item" *ngFor="let file of previewFiles">
+            <img *ngIf="isImage(file)" [src]="file.preview">
+            <mat-icon *ngIf="!isImage(file)" class="file-icon">
+            {{ getFileIcon(file.type) }}
+            </mat-icon>
+            <span class="file-name">{{ file.name }}</span>
+        </div>
+    </div>
+    <button mat-raised-button color="primary" 
+            [disabled]="previewFiles.length === 0"
+            (click)="submitJournalEntry()">
+      Add Journal Entry
+    </button>
+</div>

@@ -1,0 +1,20 @@
+<div>Pour your heart out...</div>
+<div class="recorder-container">
+    <div class="progress-circle">
+      <svg width="400" height="400" viewBox="0 0 400 400">
+        <circle cx="200" cy="200" r="180" class="progress-circle-background"></circle>
+        <circle cx="200" cy="200" r="180" class="progress-circle-fill"
+          [style.stroke-dasharray]="circleCircumference"
+          [style.stroke-dashoffset]="circleDashOffset"></circle>
+      </svg>
+      <div class="progress-content">
+        <button (click)="isRecording ? stopRecording() : toggleRecording()" 
+                [class.recording]="isRecording">
+          {{ isRecording ? 'Stop' : 'Record' }}
+        </button>
+        <div class="time-remaining">{{ formatTime(remainingTime) }}</div>
+      </div>
+    </div>
+    <audio *ngIf="audioUrl" controls [src]="audioUrl"></audio>
+</div>
+<div class="add-journal-entry"><button *ngIf="hasRecorded" (click)="saveTheJournalEntry()">Add Journal Entry</button></div>

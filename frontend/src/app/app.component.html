@@ -1,0 +1,11 @@
+<app-navbar (profileClicked)="showProfile()" (journalClicked)="showJournal()"></app-navbar> 
+
+<ng-container *ngIf="!showProfileView && !showJournalView">
+  <app-main *ngIf="authService.isLoggedIn$ | async; else login"></app-main>
+  <ng-template #login>
+    <app-login></app-login>
+  </ng-template>
+</ng-container>
+
+<app-profile *ngIf="showProfileView" (return)="returnToMain()"></app-profile>
+<app-journal *ngIf="showJournalView" (return)="returnToMain()"></app-journal>

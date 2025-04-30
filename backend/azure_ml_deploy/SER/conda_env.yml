@@ -1,0 +1,16 @@
+name: ser_environment_8
+dependencies:
+  - python=3.8.12
+  - numpy
+  - pip:
+      - tensorflow==2.10.0
+      - keras==2.10.0
+      - librosa==0.9.2
+      - soundfile==0.12.1
+      - scipy==1.10.1
+      - numba==0.56.4
+      - llvmlite==0.39.1
+      - gunicorn
+      - azureml-inference-server-http
+      - azureml-defaults
+      - flask

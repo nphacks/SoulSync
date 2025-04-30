@@ -1,0 +1,9 @@
+<div class="navbar">
+    <button>Logo</button>
+    <button (click)="onProfileClick()">Profile</button>
+    <button (click)="onJournalClick()">All Journals</button>
+    <button mat-icon-button>
+        <mat-icon [matBadge]="unreadCount" matBadgeColor="warn">notifications</mat-icon>
+    </button>
+    <button>Sign out</button>
+</div>
