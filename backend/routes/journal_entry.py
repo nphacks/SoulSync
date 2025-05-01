@@ -247,7 +247,7 @@ async def upload_image_with_metadata(
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
     
-# Text journal entry route
+# Chatbot journal entry route
 @router.post("/chatbot/")
 async def create_text_entry(
     user_id: str = Form(...),

@@ -1,5 +1,58 @@
-pydub
+# Core
+fastapi==0.109.1
+uvicorn==0.27.0
+python-dotenv==1.0.0
+
+# Database
+pymongo==4.6.1
+motor==3.3.2  # Only if using async MongoDB
+bson==0.5.10
+
+# Audio Processing
+pydub==0.25.1
 ffmpeg
-transformers
-torch
-pydantic[email]>=2.0
+ffmpeg-python==0.2.0
+
+# AI/ML
+transformers==4.38.2
+torch==2.2.1
+sentence-transformers==2.6.1
+
+# Azure Services
+azure-ai-documentintelligence==1.0.0
+azure-storage-blob==12.19.0
+azure-identity==1.15.0
+
+# Security/Validation
+bcrypt==4.1.2
+email-validator==2.1.0.post1
+pydantic[email]==2.7.0
+
+# Additional Utilities
+aiofiles==23.2.1
+python-multipart==0.0.6
+numpy==1.26.4
+
+# Hugging Face Models
+transformers==4.38.2
+datasets==2.18.0
+accelerate==0.27.2
+tokenizers==0.15.2
+sentencepiece==0.2.0
+
+# Specific model dependencies
+ehcalabres/wav2vec2-lg-xlsr-en-speech-emotion-recognition
+SamLowe/roberta-base-go_emotions
+
+# Core requirements from previous list
+fastapi==0.109.1
+uvicorn==0.27.0
+python-dotenv==1.0.0
+pymongo==4.6.1
+pydub==0.25.1
+ffmpeg-python==0.2.0
+torch==2.2.1
+azure-storage-blob==12.19.0
+bcrypt==4.1.2
+pydantic[email]==2.7.0
+aiofiles==23.2.1
