@@ -2,11 +2,29 @@ import { Component, ElementRef, ViewChild, OnDestroy, Inject, PLATFORM_ID } from
 import { isPlatformBrowser } from '@angular/common';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { JournalEntryService } from '../../services/journal-entry.service';
+import { trigger, transition, style, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-voice-journal',
   templateUrl: './voice-journal.component.html',
-  styleUrl: './voice-journal.component.scss'
+  styleUrl: './voice-journal.component.scss',
+  animations: [
+    trigger('emotionalEntrance', [
+      transition(':enter', [
+        style({ 
+          opacity: 0,
+          transform: 'translateY(20px) rotate(-2deg)',
+          filter: 'blur(2px)'
+        }),
+        animate('1.2s cubic-bezier(0.68, -0.55, 0.27, 1.55)', 
+          style({ 
+            opacity: 1,
+            transform: 'translateY(0) rotate(0)',
+            filter: 'blur(0)'
+          }))
+      ])
+    ])
+  ]
 })
 export class VoiceJournalComponent {
   private recorder: any;

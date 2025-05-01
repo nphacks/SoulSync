@@ -1,9 +1,13 @@
 <div class="navbar">
-    <button>Logo</button>
-    <button (click)="onProfileClick()">Profile</button>
-    <button (click)="onJournalClick()">All Journals</button>
-    <button mat-icon-button>
-        <mat-icon [matBadge]="unreadCount" matBadgeColor="warn">notifications</mat-icon>
-    </button>
-    <button>Sign out</button>
+    <img src="../../../assets/SoulSync.png" height="60px">
+    <div class="button-section">
+        <button mat-raised-button color="primary" (click)="onProfileClick()">Profile</button>
+        <button mat-raised-button color="primary" (click)="onJournalClick()">All Journals</button>
+        <button mat-icon-button>
+            <mat-icon [matBadge]="unreadCount" matBadgeColor="warn">notifications</mat-icon>
+        </button>
+        <button mat-icon-button style="text-align: center;">
+            <mat-icon aria-hidden="false" aria-label="Logout" fontIcon="logout"></mat-icon>
+        </button>
+    </div>
 </div>

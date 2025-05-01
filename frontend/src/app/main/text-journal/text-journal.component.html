@@ -11,8 +11,10 @@
 <div class="word-count" [style.color]="wordCount > 300 ? 'red' : 'green'">
     {{ wordCount }}/300 words
 </div>    
-<button 
-    [disabled]="wordCount > 300 || wordCount === 0"
-    (click)="submitEntry()">
-    Add Journal Entry
-</button>
+<div class="add-journal-entry">
+    <button mat-raised-button color="primary" 
+        [disabled]="wordCount > 300 || wordCount === 0"
+        (click)="submitEntry()">
+        Add Journal Entry
+    </button>
+</div>

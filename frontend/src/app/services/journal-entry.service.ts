@@ -68,4 +68,8 @@ export class JournalEntryService {
   
     return this.http.post(`${this.API_URL}/chatbot/`, formData).toPromise();
   }
+
+  getEntries(userId: string) {
+    return this.http.get(`http://localhost:8000/users/entries/${userId}`);
+  }
 }

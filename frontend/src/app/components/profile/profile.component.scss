@@ -7,7 +7,7 @@
   .profile-grid {
     display: flex;
     gap: 20px;
-    height: 80vh; /* Adjust based on your needs */
+    height: 80vh; 
   }
   
   .column {
@@ -54,6 +54,24 @@
   
     &.mat-form-field-disabled {
       opacity: 1;  // Keep full opacity when disabled
-      background-color: #f5f5f5;
+      background-color: #f5f5f5; 
     }
   }
+  .report-selector {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .report-content ul {
+    padding-left: 20px;
+  }
+  
+  .report-content li {
+    margin-bottom: 8px;
+    list-style-type: disc;
+  }
+
+  

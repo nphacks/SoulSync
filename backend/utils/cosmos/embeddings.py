@@ -7,7 +7,6 @@ from database.database import db
 collection = db['journal-entry']
 
 def create_embeddings(text: str):
-    print('Reached create embeddings')
     # Create embeddings
     url = 'https://api.jina.ai/v1/embeddings'
     headers = {

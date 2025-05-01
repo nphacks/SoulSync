@@ -10,8 +10,6 @@ from pymongo import MongoClient
 
 client = MongoClient(os.getenv("MONGODB_URI"))
 
-print(client)
-
 db = client["voice-journal-data"]  
 # collection = db["user"]  
 

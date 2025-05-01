@@ -1,5 +1,6 @@
 <div class="upload-container">
     <div>You can upload a handwritten journal entry here</div>
+    <br><br>
     <!-- <div class="upload-file-input-container"> -->
         <input type="file" id="fileInput" (change)="handleFileInput($event)" accept=".jpg,.jpeg,.png,.pdf,.doc,.docx" multiple>
         <label for="fileInput" class="file-upload-label">
@@ -17,9 +18,11 @@
             <span class="file-name">{{ file.name }}</span>
         </div>
     </div>
-    <button mat-raised-button color="primary" 
-            [disabled]="previewFiles.length === 0"
-            (click)="submitJournalEntry()">
-      Add Journal Entry
-    </button>
+    <div class="add-journal-entry">
+        <button mat-raised-button color="primary" 
+                [disabled]="previewFiles.length === 0"
+                (click)="submitJournalEntry()">
+            Add Journal Entry
+        </button>
+    </div>
 </div>

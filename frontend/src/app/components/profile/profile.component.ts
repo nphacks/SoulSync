@@ -21,11 +21,12 @@ export class ProfileComponent implements OnInit {
     extremeEmotions: false
   };
   hasChanges = false;
+  selectedReport: string = 'activity'; // Default selection
 
   constructor(private authService: AuthService) {}
 
   ngOnInit() {
-    this.loadUserSettings();
+    // this.loadUserSettings();
   }
 
   loadUserSettings() {

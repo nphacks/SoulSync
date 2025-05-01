@@ -17,17 +17,18 @@ import { PLATFORM_ID } from '@angular/core';
 })
 export class MainComponent {
   cards = [
-    { component: VoiceJournalComponent },
     { component: TextJournalComponent },
     { component: HandwrittenJournalComponent },
+    { component: VoiceJournalComponent },
     { component: BotJournalComponent }
   ];
 
-  currentPosition = 0;
+  // currentPosition = 0;
   isDragging = false;
   startX = 0;
   currentTranslate = 0;
-  activeIndex = 0;
+  activeIndex = 2; // This will make VoiceJournalComponent appear first
+  currentPosition = -2 * this.cardWidth
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
 

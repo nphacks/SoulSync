@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,6 +8,8 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class NavbarComponent {
   unreadCount = 0; 
+
+  constructor(private authService: AuthService) {}
 
   @Output() profileClicked = new EventEmitter<void>();
   @Output() journalClicked = new EventEmitter<void>();
@@ -17,5 +20,9 @@ export class NavbarComponent {
 
   onJournalClick() {
     this.journalClicked.emit();
+  }
+
+  logout() {
+    this.authService.logout()
   }
 }

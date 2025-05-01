@@ -26,7 +26,9 @@ import { MatProgressBar } from '@angular/material/progress-bar';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
-import { MatSlideToggle } from '@angular/material/slide-toggle';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatSelectModule } from '@angular/material/select';
+import { MatOptionModule } from '@angular/material/core';
 
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -34,6 +36,9 @@ import { LoginComponent } from './components/login/login.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { JournalComponent } from './components/journal/journal.component';
 import { NotificationsComponent } from './components/notifications/notifications.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatExpansionModule} from '@angular/material/expansion';
+
 
 @NgModule({
   declarations: [
@@ -69,8 +74,12 @@ import { NotificationsComponent } from './components/notifications/notifications
     MatBadgeModule,
     MatSidenavModule,
     MatListModule,
-    MatSlideToggle,
+    MatSlideToggleModule,
+    MatSelectModule,
+    MatOptionModule,
+    MatExpansionModule,
     CommonModule,
+    BrowserAnimationsModule
   ],
   providers: [
     provideClientHydration(),

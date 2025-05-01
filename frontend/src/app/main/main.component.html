@@ -1,13 +1,14 @@
 <div class="carousel-container">
     <button mat-icon-button (click)="prevSlide()" class="nav-button prev">
-      <mat-icon>&lt;</mat-icon>
+      <mat-icon aria-hidden="false" aria-label="Left" fontIcon="chevron_left"></mat-icon>
     </button>
     
-    <div class="carousel" 
+    <!-- <div class="carousel" 
          (mousedown)="startDrag($event)"
          (mousemove)="onDrag($event)"
          (mouseup)="endDrag()"
-         (mouseleave)="endDrag()">
+         (mouseleave)="endDrag()"> -->
+    <div class="carousel">
       <div class="slides" [style.transform]="'translateX(' + currentPosition + 'px)'">
         <mat-card *ngFor="let card of cards; let i = index" 
                  class="carousel-card"
@@ -20,6 +21,6 @@
     </div>
     
     <button mat-icon-button (click)="nextSlide()" class="nav-button next">
-      <mat-icon>></mat-icon>
+      <mat-icon aria-hidden="false" aria-label="Right" fontIcon="chevron_right"></mat-icon>
     </button>
 </div>

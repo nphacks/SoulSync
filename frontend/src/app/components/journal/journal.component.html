@@ -1,1 +1,94 @@
-<button (click)="returnToMain()">Back</button>
+<div class="profile-container">
+    <button mat-raised-button color="primary" (click)="returnToMain()">Back to Main</button>
+    <br><br>
+    <!-- <div *ngIf="debug" style="background: #f5f5f5; padding: 1rem; margin-bottom: 1rem;">
+    <h4>Debug Info</h4>
+        <pre>Loading: {{ loading }}</pre>
+        <pre>Error: {{ error || 'null' }}</pre>
+        <pre>Entries: {{ entries | json }}</pre>
+    </div> -->
+    
+    <!-- Loading State -->
+    <ng-container *ngIf="loading">
+        <div class="loading-state">
+        <mat-spinner diameter="50"></mat-spinner>
+        <p>Loading your journal entries...</p>
+        </div>
+    </ng-container>
+    
+    <!-- Error State -->
+    <ng-container *ngIf="!loading && error">
+        <div class="error-state">
+        <mat-icon color="warn">error_outline</mat-icon>
+        <p>{{ error }}</p>
+        <button mat-button (click)="loadEntries()">Retry</button>
+        </div>
+    </ng-container>
+    
+    <!-- Empty State -->
+    <ng-container *ngIf="!loading && !error && (!entries || !entries.entries || entries.entries.length === 0)">
+        <div class="empty-state">
+        <mat-icon>book</mat-icon>
+        <p>No journal entries found</p>
+        </div>
+    </ng-container>
+    
+    <!-- Data State -->
+    <ng-container *ngIf="!loading && !error && entries?.entries?.length > 0">
+        <mat-accordion>
+            <mat-expansion-panel *ngFor="let entry of entries.entries; let i = index">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    {{ formatDate(entry.timestamp) }}
+                </mat-panel-title>
+                <mat-panel-description>
+                {{ entry.journal_type | titlecase }} Entry
+                <span class="sentiment-badge" [ngClass]="getSentimentClass(entry.sentiment)">
+                    {{ entry.sentiment }} 
+                </span>
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+        
+            <!-- Entry Content -->
+            <div class="entry-content">
+                <!-- Audio Player -->
+                <div *ngIf="entry.journal_type === 'audio'" class="audio-section">
+                    <audio controls>
+                        <source [src]="getAudioUrl(entry.audio_blob)" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                    <div *ngIf="entry.speech_emotion" class="emotion-section">
+                        Speech Emotion: {{ entry.speech_emotion }} ({{ entry.speech_emotion_score | percent }})
+                    </div>
+                </div>
+        
+                <!-- Text Content -->
+                <div *ngIf="entry.journal_type === 'text' || entry.journal_type === 'handwritten'" class="text-section">
+                    <p>{{ entry.text }}</p>
+                </div>
+        
+                <!-- Chatbot Conversation -->
+                <div *ngIf="entry.journal_type === 'chatbot'" class="chatbot-section">
+                    <div *ngFor="let message of parseChatbotData(entry.text)" class="chat-message" [class.user-message]="message.role === 'user'">
+                        <strong>{{ message.role | titlecase }}:</strong> {{ message.content }}
+                    </div>
+                </div>
+        
+                <!-- Emotion Analysis -->
+                <div class="analysis-section">
+                    <div *ngIf="entry.text_emotion">
+                        Text Emotion: {{ entry.text_emotion }} ({{ entry.text_emotion_score | percent }})
+                    </div>
+                    <div>
+                        Overall Sentiment: {{ entry.sentiment }} ({{ entry.sentiment_score | percent }})
+                    </div>
+                </div>
+            </div>
+            </mat-expansion-panel>
+        </mat-accordion>
+      
+        <div *ngIf="!loading && (!entries?.entries || entries.entries.length === 0)">
+            No journal entries found.
+        </div>
+        </ng-container>
+</div>

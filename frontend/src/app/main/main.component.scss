@@ -23,9 +23,26 @@
     min-height: 75vh;
     margin: 0 10px;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     transition: opacity 0.5s ease, transform 0.5s ease;
     opacity: 0.5;
     transform: scale(0.9);
+    background-color: rgba(255, 255, 255, 0.35); 
+    box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.34);
+    -webkit-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.34);
+    -moz-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.34);
+    
+    /* For dark mode (optional): */
+    &.dark-card {
+        background-color: rgba(0, 0, 0, 0.5); /* 50% opacity black */
+    }
+
+    /* Ensure content remains fully opaque */
+    & > * {
+        opacity: 1 !important;
+    }
 }
   
 .carousel-card.active {

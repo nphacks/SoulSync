@@ -25,14 +25,15 @@
     padding: 12px;
     width: 250px;
     height: 250px;
-    border: 2px dashed #ccc;
+    border: 2px dasher rgba(#017baf,0.5);
     border-radius: 4px;
     cursor: pointer;
     margin-bottom: 20px;
+    background-color: rgba(232, 244, 255,0.5);
 }
 
 .file-upload-label:hover {
-    border-color: #3f51b5;
+    border-color: #017baf;
 }
 
 .preview-container {
@@ -68,3 +69,9 @@
     text-align: center;
     word-break: break-word;
 }
+
+.add-journal-entry {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }

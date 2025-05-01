@@ -15,13 +15,11 @@ router = APIRouter()
 @router.post("/chat/")
 async def post_chat_response(chat_data: ChatRequest):
 
-    print('Visiting chat')
     context = search_vector_embeddings(chat_data.user_id, chat_data.user_message)
 
     prompt = build_prompt(chat_data.user_message, context)
 
     response = ask_openai(prompt)
-    print(response)
 
     # Process the chat
     return {
